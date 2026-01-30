@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get $500 Amazon Gift Card</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNXCTY7VKW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZNXCTY7VKW', {debug_mode: true });
+</script>
   <style>
     :root {
       --primary: #ff9900;
@@ -139,11 +148,24 @@
       color: #888;
       margin-top: 40px;
     }
+      /* Desktop message */
+    #desktop-message {
+      display: none;
+      text-align: center;
+      padding: 80px 20px;
+     }
   </style>
 </head>
 <body>
+<!-- Desktop Warning -->
+  <div id="desktop-message">
+    <h2>⚠️ Mobile Device Required</h2>
+    <p>Please visit this page using a mobile phone to continue.</p>
+  </div>
 
-  <div class="container">
+ <!-- Mobile Content -->
+  <div id="mobile-content">
+    <div class="container">
 
     <div class="brand">Amazon</div>
 
@@ -181,7 +203,7 @@
         <div class="num">3</div>
         <div>
           <strong>Complete Offers</strong>
-          <span>Finish required sponsor offers to qualify</span>
+          <span>Finish 4-5 offers (fun & $0 required) </span>
         </div>
       </div>
 
@@ -199,17 +221,29 @@
     </div>
 
     <div class="footer">
-      This promotion is not affiliated with or sponsored by Amazon. 
-      Terms & conditions apply.
     </div>
 
   </div>
-
-  <script>
-    function redirect() {
-      // 🔴 Replace with your CPA tracking link
-      window.location.href = "https://trkio.org/aff_c?offer_id=3377&aff_id=17763";
-    }
+    
+ <script>
+     var clicked = false;
+function redirect() {
+  if (clicked) return;
+  clicked = true; 
+  
+if (typeof gtag === 'function') {
+gtag('event', 'start_now_click', {
+   event_category: 'cta',
+   event_label: 'amazon Gift Card',
+  value: 1,
+  debug_mode: true,
+   transport_type: 'beacon'
+  });
+  }
+   setTimeout(function () {
+    window.location.href = "https://trkio.org/aff_c?offer_id=3377&aff_id=17763";
+  }, 800);
+}
     (function () {
   var isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
 
