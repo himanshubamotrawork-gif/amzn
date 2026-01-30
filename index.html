@@ -156,6 +156,37 @@
      }
   </style>
 </head>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var clicked = false;
+  var url = "https://trkio.org/aff_c?offer_id=3377&aff_id=17763";
+
+  function handleClick() {
+    if (clicked) return;
+    clicked = true;
+
+    if (typeof gtag === "function") {
+      gtag("event", "start_now_click", {
+        event_category: "cta",
+        event_label: "Amazon Gift Card",
+        transport_type: "beacon"
+      });
+    }
+
+    window.location.href = url;
+  }
+
+  var btn1 = document.getElementById("startBtn");
+  var btn2 = document.getElementById("startBtn2");
+
+  if (btn1) btn1.addEventListener("click", handleClick);
+  if (btn2) btn2.addEventListener("click", handleClick);
+
+});
+</script>
+
 <body>
 <!-- Desktop Warning -->
   <div id="desktop-message">
@@ -178,7 +209,7 @@
     <h1>Get <span>$500 Amazon Gift Card</span></h1>
     <p class="sub">Complete simple sponsored offers & claim your reward!</p>
 
-    <button class="cta" onclick="redirect()">Start Now</button>
+    <button class="cta" id="startBtn">Start Now</button>
 
     <div class="how">
       <h2>How It Works</h2>
@@ -216,7 +247,7 @@
       </div>
 
       <div class="final-cta">
-        <button class="cta" onclick="redirect()">Claim Your Amazon Gift Card</button>
+  <button class="cta" id="startBtn2">Claim Your Amazon Gift Card</button>
       </div>
     </div>
 
@@ -225,25 +256,6 @@
 
   </div>
     
- <script>
-     var clicked = false;
-function redirect() {
-  if (clicked) return;
-  clicked = true; 
-  
-if (typeof gtag === 'function') {
-gtag('event', 'start_now_click', {
-   event_category: 'cta',
-   event_label: 'amazon Gift Card',
-  value: 1,
-  debug_mode: true,
-   transport_type: 'beacon'
-  });
-  }
-   setTimeout(function () {
-    window.location.href = "https://trkio.org/aff_c?offer_id=3377&aff_id=17763";
-  }, 800);
-}
     (function () {
   var isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
 
@@ -255,7 +267,7 @@ gtag('event', 'start_now_click', {
       mobile.style.display = "none";
       desktop.style.display = "block";
     }
-})();
+});
 
   </script>
 
