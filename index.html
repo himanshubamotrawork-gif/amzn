@@ -256,6 +256,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   </div>
     <script>
+     var clicked = false;
+function redirect() {
+  if (clicked) return;
+  clicked = true; 
+  
+if (typeof gtag === 'function') {
+gtag('event', 'start_now_click', {
+   event_category: 'cta',
+   event_label: 'apple Gift Card',
+  value: 1,
+  debug_mode: true,
+   transport_type: 'beacon'
+  });
+  }
     (function () {
   var isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent);
 
